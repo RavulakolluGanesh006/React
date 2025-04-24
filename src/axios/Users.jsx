@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UsersService from "./UsersService";
+import User from "./User";
 
 function Users(){
 let [users,setUsers]=useState([]);
@@ -26,6 +27,30 @@ console.log("USERS",users);
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, sequi consequatur alias, minus soluta doloribus maxime eius nemo repellat, dicta temporibus iure perferendis modi. Vel nemo ipsa adipisci aperiam voluptate!
       </p>
       <button onClick={sendData}>Get users</button>
+
+      <div>
+        <div>
+          <input type="radio" />
+          <label>ALL</label>
+        </div>
+        <div>
+          <input type="radio" />
+          <label>Male</label>
+        </div>
+        <div>
+          <input type="radio" />
+          <label>Female</label>
+        </div>
+      </div>
+
+      <div>
+        {users.map((element,index)=>{
+            return(
+              <User user={element}/>
+            )
+          })
+        }
+      </div>
     </div>
     )
 }
